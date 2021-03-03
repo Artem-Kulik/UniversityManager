@@ -1,0 +1,57 @@
+﻿@model UniversityManager.Models.Entity.GroupViewModel
+@{
+    ViewBag.Title = "GroupInfo";
+}
+
+<h2>GroupInfo</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountOfStudents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountOfStudents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+    </dl>
+    <table class="table">
+        <tr>
+            <th>Image </th>
+            <th>Age </th>
+            <th>Phone </th>
+            <th>Email </th>
+        </tr>
+        @foreach (var el in ViewBag.Students)
+        {
+        <tr>
+            <td><img src="~/Images/@el.Image" style="width: 200px; height:120px;"> </td>
+            <td> @el.Age </td>
+            <td> @el.Phone </td>
+            <td> @*@el.ApplicationUser.Email*@ Email </td>
+        </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
